@@ -1,155 +1,136 @@
+/* --------------------------- Import */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap");
+
+:root {
+  /* kleuren */
+  --yellow: #f4eb34;
+  --white: #fff;
+  --black: #000;
+  --lightgreen: #72a7a5;
+  --jet: #333333;
+  --seasalt: #f7f7f7;
+  --platinum: #dddddd;
+  --silver: #ccc;
+  --verdigris: #72afa6;
+  --azure: #e4f2f2;
+  --lightblue: #b5dbdc;
+  --timberwolf: #d3d3d3;
+  --bluemunsell: #009aaf;
+  --dimgray: #666;
+  --whitesmoke: #f5f5f5;
+  --antiflashwhite: #ededed;
+}
+
 body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
-    overflow: hidden;
-    min-height: 100vh;
-    min-width: 100vw;
-    background: rgba(72, 205, 167, 0.8);
-    background-image: radial-gradient(
-        circle at bottom left,
-        rgba(255, 255, 0, 0.9),
-        rgba(255, 255, 0, 0) 70%
-      ),
-      radial-gradient(
-        circle at top left,
-        rgb(72, 205, 167, 0.8),
-        rgba(255, 0, 0, 0) 70%
-      ),
-      radial-gradient(
-        circle at center right,
-        rgba(255, 255, 0, 0.9),
-        rgba(255, 0, 255, 0) 50%
-      );
-    background-size: 200% 200%;
-    animation: movement 30s ease infinite alternate-reverse;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  z-index: 100;
+  font-size: 36px;
+  font-weight: bold;
+  justify-items: center;
+  color: var(--verdigris);
+}
+
+section {
+  border: 1px solid var(--verdigris);
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px var(--lightgreen);
+  background-color: rgba(106, 173, 153, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 70vh;
+  width: 70vw;
+  max-width: 20rem;
+}
+
+#connection-count {
+  border-radius: 0.5rem;
+  background-color: var(--antiflashwhite);
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+  color: var(--bluemunsell);
+  height: 46vh;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+
+form {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  border-color: var(--verdigris);
+}
+
+li {
+  color: var(--black);
+  background-color: #ccc;
+  border-radius: 2em;
+  padding: 0.2em;
+  /* max-width: 10em; */
+}
+
+
+span {
+  color: var(--bluemunsell);
+}
+
+.own-message {
+  color: var(--black);
+  text-align: right;
+  background-color: #ededed;
   }
   
-  @keyframes movement {
-    0% {
-      background-position: 0% 0%;
-    }
-    25% {
-      background-position: 50% 0%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    75% {
-      background-position: 50% 100%;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+  .own-time {
+    color: var(--bluemunsell);
+    justify-content: right;
+    text-align: right;
   }
-  
-  main {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  section {
-    width: 20rem;
-    height: 30rem;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(1rem);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0.8rem 0.8rem 1.6rem 0 rgba(206, 205, 205, 0.5),
-      -0.8rem -0.8rem 1.6rem 0 rgba(255, 255, 255, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  section h1 {
-    margin: 0;
-    padding: 0;
-    padding-top: 1rem;
-    font-weight: lighter;
-    font-size: 1rem;
-  }
-  
-  section h1 span {
-    font-size: 1rem;
-    display: inline-block;
-    width: 4.5rem;
-    color: rgb(59, 139, 96);
-  }
-  
-  section ul {
-    margin: 0;
-    padding: 0.2em;
-    list-style-type: none;
-    flex-grow: 2;
-    width: 18em;
-    overflow-y: scroll;
-  }
-  
-  ::-webkit-scrollbar {
-    background: transparent;
-  }
-  
-  section ul > li {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-  }
-  
-  section form {
-    margin: 0 0 1rem 0;
-    padding: 0;
-    width: 18rem;
-    height: 2rem;
-    display: flex;
-  }
-  
-  section form input[type="text"] {
-    margin: 0;
-    padding: 0 1rem;
-    border: none;
-    height: 2rem;
-    flex-grow: 2;
-    background: rgb(239, 238, 238);
-    box-shadow: inset 0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
-    border: 0;
-    opacity: 90%;
-    outline: none;
-  }
-  
-  section form > button {
-    padding: 0 0.6rem 0 0.4rem;
-    width: 2rem;
-    background: rgb(239, 238, 238);
-    box-shadow: inset -0.2rem 0.2rem 0.3rem 0 rgba(209, 205, 199, 0.5);
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    border: 0;
-    opacity: 80%;
-    outline: none;
-    transition: 0.2s;
-  }
-  
-  section form > button span {
-    display: none;
-  }
-  
-  section form > button::after {
-    content: "⇒";
-  }
-  
-  section form > button:hover {
-    padding-left: 1rem;
-  }
-  
-  section form > button:active {
-    padding-left: 1rem;
-    color: rgb(234, 255, 0);
-  }
+
+
+button {
+  display: block;
+  background-color: var(--lightgreen);
+  color: var(--white);
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 1rem;
+  height: 2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+button:hover {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--lightgreen);
+}
+
