@@ -1,94 +1,55 @@
-/* Losjes gebaseerd op https://socket.io/get-started/chat */
+import * as path from "path";
 
-import * as path from 'path'
-import { Server } from 'socket.io'
-import { createServer } from 'http'
-import express from 'express'
+import { Server } from "socket.io";
+import { createServer } from "http";
+import express from "express";
 
-const app = express()
-const http = createServer(app)
-const ioServer = new Server(http)
-const port = process.env.PORT || 8000
+const app = express();
+const http = createServer(app);
+const ioServer = new Server(http);
 
-// Om de history te kunnen zien
-const historySize = 50
+const port = process.env.PORT || 7000;
 
-let history = []
+// Zie de historie
+const historySize = 50;
 
-
-// Om de connecties bij te houden
-let connections = 0
-
-
+let history = [];
 
 // Serveer client-side bestanden
-app.use(express.static(path.resolve('public')))
-
-
-
+app.use(express.static(path.resolve("public")));
 
 // Start de socket.io server op
-ioServer.on('connection', (client) => {
-  // Tel er 1 connectie bij op
-  connections++
- 
+ioServer.on("connection", (client) => {
   // Log de connectie naar console
-  console.log(`user ${client.id} connected, total connections ${connections}`)
+  console.log(`user ${client.id} connected`);
 
-    // Stuur het aantal connecties naar alle clients
-    ioServer.emit('connectionCount', connections);
-
-
-  // Stuur de historie door, let op: luister op socket, emit op io!
-  ioServer.emit('history', history)
+  // Stuurt de history door
+  ioServer.emit("history", history);
 
   // Luister naar een message van een gebruiker
-  client.on('message', (message) => {
-
+  client.on("message", (message) => {
     // Log het ontvangen bericht
-    console.log(`user ${client.id} sent message: ${message}`)
+    console.log(`user ${client.id} sent message: ${message}`);
 
-     // Check de maximum lengte van de historie
-     while (history.length > historySize) {
-      history.shift()
+    // Check de maximum lengte van de historie
+    while (history.length > historySize) {
+      history.shift();
     }
     // Voeg het toe aan de historie
-    history.push(message)
+    history.push(message);
 
     // Verstuur het bericht naar alle clients
-    ioServer.emit('message', message)
-  })
+    ioServer.emit("message", message);
+  });
 
   // Luister naar een disconnect van een gebruiker
-  client.on('disconnect', () => {
-    // haal 1 connectie eraf
-    connections--
+  client.on("disconnect", () => {
     // Log de disconnect
-    console.log(`user ${client.id} disconnected, total connections: ${connections}`)
-
-      // Stuur het aantal connecties naar alle clients
-    ioServer.emit('connectionCount', connections);
-
-  })
-})
-
-// Maak een route voor de index 
-app.get('/', (request, response) => {
- 
-  fetchJson().then((data) => {
-    response.render('index')
-  })
-})
-
-    // definieer de fetchJson functie
-    async function fetchJson(url) {
-      return await fetch(url)
-        .then((response) => response.json())
-        .catch((error) => error)
-    }
-
+    console.log(`user ${client.id} disconnected`);
+  });
+});
 
 // Start een http server op het ingestelde poortnummer en log de url
 http.listen(port, () => {
-  console.log('listening on http://localhost:' + port)
-})
+  console.log("listening on http://localhost:" + port);
+});

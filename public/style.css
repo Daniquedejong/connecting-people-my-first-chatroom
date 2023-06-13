@@ -1,8 +1,7 @@
-/* --------------------------- Import */
+/* ---- Import */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap");
 
 :root {
-  /* kleuren */
   --yellow: #f4eb34;
   --white: #fff;
   --black: #000;
@@ -55,16 +54,6 @@ section {
   max-width: 20rem;
 }
 
-#connection-count {
-  border-radius: 0.5rem;
-  background-color: var(--antiflashwhite);
-  padding: 0.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 ul {
   list-style-type: none;
   padding-left: 0px;
@@ -78,8 +67,8 @@ ul {
 }
 
 form {
-  margin-top: auto;
   display: flex;
+  margin-top: auto;
   flex-direction: column;
 }
 
@@ -89,31 +78,28 @@ input {
   border-color: var(--verdigris);
 }
 
-li {
-  color: var(--black);
+/* li {
+  color: red;
   background-color: #ccc;
   border-radius: 2em;
   padding: 0.2em;
-  /* max-width: 10em; */
-}
+} */
 
-
-span {
-  color: var(--bluemunsell);
-}
+/* span {
+  color: red;
+} */
 
 .own-message {
   color: var(--black);
   text-align: right;
   background-color: #ededed;
-  }
-  
-  .own-time {
-    color: var(--bluemunsell);
-    justify-content: right;
-    text-align: right;
-  }
+}
 
+.own-time {
+  color: var(--bluemunsell);
+  justify-content: right;
+  text-align: right;
+}
 
 button {
   display: block;
@@ -133,4 +119,3 @@ button:hover {
   color: var(--black);
   border: 1px solid var(--lightgreen);
 }
-
