@@ -3,6 +3,7 @@
 
 <img width="400" alt="Scherm­afbeelding 2023-03-23 om 14 02 14" src="https://github.com/iBadr49/performance-vinimini/assets/112856683/4fca2b38-c297-428b-b732-ed065ec754c5">
 
+![image](https://github.com/Daniquedejong/connecting-people-my-first-chatroom/assets/112856683/daa4bb0a-7ae0-44d2-9e97-5d33b6bb320a)
 
 
 ## 📚 Inhoudsopgave
